@@ -25,26 +25,31 @@ export default function App() {
     <>
       <h1>Meme Generator</h1>
       <div>Meme Template Text</div>
-      <input
-        value={imageInput}
-        onChange={(e) => setImageInput(e.target.value)}
-        id="Meme template"
-      />
+      <label>
+        {' '}
+        Meme template
+        <input
+          value={imageInput}
+          onChange={(e) => setImageInput(e.target.value)}
+        />
+      </label>
       <div>TopText</div>
-      <input
-        value={topText}
-        onChange={(e) => setTopText(e.target.value)}
-        id="Top text"
-      />
+      <label>
+        {' '}
+        Top text
+        <input value={topText} onChange={(e) => setTopText(e.target.value)} />
+      </label>
       <div>
         <img src={testUrl} alt=" meme" data-test-id="meme-image" />
       </div>
       <div>BottomText</div>
-      <input
-        value={bottomText}
-        onChange={(e) => setBottomText(e.target.value)}
-        id="Bottom text"
-      />
+      <label>
+        Bottom text
+        <input
+          value={bottomText}
+          onChange={(e) => setBottomText(e.target.value)}
+        />
+      </label>
 
       <button onClick={saveImage}>Download</button>
     </>
