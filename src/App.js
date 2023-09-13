@@ -28,13 +28,13 @@ export default function App() {
       <input
         value={imageInput}
         onChange={(e) => setImageInput(e.target.value)}
-        label="Meme template"
+        id="Meme template"
       />
       <div>TopText</div>
       <input
         value={topText}
         onChange={(e) => setTopText(e.target.value)}
-        label="Top text"
+        id="Top text"
       />
       <div>
         <img src={testUrl} alt=" meme" data-test-id="meme-image" />
@@ -43,7 +43,7 @@ export default function App() {
       <input
         value={bottomText}
         onChange={(e) => setBottomText(e.target.value)}
-        label="Bottom text"
+        id="Bottom text"
       />
 
       <button onClick={saveImage}>Download</button>
