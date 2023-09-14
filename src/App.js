@@ -35,6 +35,7 @@ export default function App() {
           onChange={(e) => setImageInput(e.target.value)}
           class="memeTemplate"
         />
+        gi
       </div>
 
       <h2>TopText</h2>
