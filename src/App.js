@@ -27,7 +27,7 @@ export default function App() {
     setTopText();
 
     setBottomText();
-    setImageInputMode(startUrl + imageInput + '.jpg');
+    setImageInputMode(startUrl + imageInput);
   }
 
   function inputTopText() {
