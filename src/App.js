@@ -15,8 +15,7 @@ export default function App() {
     '/' +
     topText +
     '/' +
-    bottomText +
-    '';
+    bottomText;
 
   function saveImage() {
     FileSaver.saveAs(testUrl, 'image.jpg');
