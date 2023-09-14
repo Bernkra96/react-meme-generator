@@ -24,7 +24,10 @@ export default function App() {
   }
 
   function changeImage() {
+    setImageInputMode(baseUrl);
+
     setTopText('');
+
     setBottomText('');
     setImageInputMode(baseUrl);
   }
