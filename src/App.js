@@ -10,7 +10,7 @@ export default function App() {
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
-  //const baseUrl = 'https://api.memegen.link/images/' + imageInput;
+  const baseUrl = startUrl + imageInput + '.jpg';
   const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
@@ -24,14 +24,18 @@ export default function App() {
   }
 
   function changeImage() {
+    return setImageInputMode(baseUrl);
+  }
+  function claer() {
     setTopText();
 
     setBottomText();
-    setImageInputMode(startUrl + imageInput);
+    changeImage();
+    return;
   }
 
   function inputTopText() {
-    setImageInputMode(testUrl);
+    return setImageInputMode(testUrl);
   }
 
   return (
@@ -42,8 +46,8 @@ export default function App() {
         Meme template
         <input
           value={imageInput}
+          onKeyUp={claer}
           onChange={(e) => setImageInput(e.target.value)}
-          onKeyUp={changeImage}
         />
       </label>
       <div>TopText</div>
