@@ -3,12 +3,14 @@ import { useState } from 'react';
 
 export default function App() {
   // User pamplate input
-
+  const startUrl = 'https://api.memegen.link/images/';
+  const [imageInput, setImageInput] = useState('ackbar');
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  // const [imageInputMode, setImageInputMode] = useState(true);
-  const [imageInput, setImageInput] = useState('ackbar');
-
+  const [imageInputMode, setImageInputMode] = useState(
+    startUrl + imageInput + '.jpg',
+  );
+  const baseUrl = 'https://api.memegen.link/images/' + imageInput + '.jpg';
   const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
@@ -18,8 +20,19 @@ export default function App() {
     bottomText;
 
   function saveImage() {
-    FileSaver.saveAs(testUrl, 'image.jpg');
+    FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
+
+  function changeImage() {
+    setTopText('');
+    setBottomText('');
+    setImageInputMode(baseUrl);
+  }
+
+  function inputTopText() {
+    setImageInputMode(testUrl);
+  }
+
   return (
     <>
       <h1>Meme Generator</h1>
@@ -30,16 +43,21 @@ export default function App() {
         <input
           value={imageInput}
           onChange={(e) => setImageInput(e.target.value)}
+          onKeyUp={changeImage}
         />
       </label>
       <div>TopText</div>
       <label>
         {' '}
         Top text
-        <input value={topText} onChange={(e) => setTopText(e.target.value)} />
+        <input
+          value={topText}
+          onChange={(e) => setTopText(e.target.value)}
+          onKeyUp={inputTopText}
+        />
       </label>
       <div>
-        <img src={testUrl} alt=" meme" data-test-id="meme-image" />
+        <img src={imageInputMode} alt=" meme" data-test-id="meme-image" />
       </div>
       <div>BottomText</div>
       <label>
@@ -47,6 +65,7 @@ export default function App() {
         <input
           value={bottomText}
           onChange={(e) => setBottomText(e.target.value)}
+          onKeyUp={inputTopText}
         />
       </label>
 
