@@ -17,7 +17,8 @@ export default function App() {
     '/' +
     topText +
     '/' +
-    bottomText;
+    bottomText +
+    '.jpg';
 
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
