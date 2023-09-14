@@ -10,7 +10,7 @@ export default function App() {
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
-  const baseUrl = startUrl + imageInput + '.jpg';
+  const baseUrl = startUrl + imageInput;
   const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
