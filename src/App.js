@@ -10,7 +10,7 @@ export default function App() {
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
-  const baseUrl = 'https://api.memegen.link/images/' + imageInput + '.jpg';
+  //const baseUrl = 'https://api.memegen.link/images/' + imageInput;
   const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
@@ -24,12 +24,10 @@ export default function App() {
   }
 
   function changeImage() {
-    setImageInputMode(baseUrl);
+    setTopText();
 
-    setTopText('');
-
-    setBottomText('');
-    setImageInputMode(baseUrl);
+    setBottomText();
+    setImageInputMode(startUrl + imageInput + '.jpg');
   }
 
   function inputTopText() {
