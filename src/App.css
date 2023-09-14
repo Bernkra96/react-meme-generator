@@ -1,5 +1,13 @@
 body {
   background-color: #ffd400;
+
+  position: relative;
+  margin-left: 40%;
+  margin-right: 60%;
+}
+
+box {
+  background-color: #ece5be;
 }
 
 h1 {
@@ -13,4 +21,35 @@ h2 {
 input {
   background-color: #2e294e;
   color: #ffd400;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 15%;
+  filter: drop-shadow(0 0 0.75rem #eadeda);
+}
+
+.memeTemplate {
+  text-transform: uppercase;
+}
+
+button {
+  background-color: #2e294e;
+  color: #ffd400;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 15%;
+  align-self: last baseline;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 50px;
+  filter: drop-shadow(0 0 0.75rem #eadeda);
+}
+
+img {
+  width: auto;
+  height: 280px;
+  margin-left: -10px;
+  padding-top: 5px;
+  filter: drop-shadow(0 0 0.75rem #eadeda);
 }
