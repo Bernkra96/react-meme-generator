@@ -48,7 +48,6 @@ export default function App() {
       </label>
       <div>TopText</div>
       <label>
-        {' '}
         Top text
         <input
           value={topText}
