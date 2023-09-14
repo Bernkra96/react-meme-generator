@@ -38,7 +38,6 @@ export default function App() {
       <h1>Meme Generator</h1>
       <div>Meme Template Text</div>
       <label>
-        {' '}
         Meme template
         <input
           value={imageInput}
