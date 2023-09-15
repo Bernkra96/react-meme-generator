@@ -1,3 +1,4 @@
+import './App.css';
 import FileSaver from 'file-saver';
 import { useState } from 'react';
 
@@ -10,7 +11,7 @@ export default function App() {
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
-  const baseUrl = startUrl + imageInput;
+  const baseUrl = startUrl + imageInput + '.jpg';
   const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
@@ -42,7 +43,7 @@ export default function App() {
   return (
     <>
       <h1>Meme Generator</h1>
-      <div>Meme Template Text</div>
+
       <label>
         Meme template
         <input
@@ -51,7 +52,7 @@ export default function App() {
           onChange={(e) => setImageInput(e.target.value)}
         />
       </label>
-      <div>TopText</div>
+
       <label>
         Top text
         <input
@@ -63,7 +64,7 @@ export default function App() {
       <div>
         <img src={imageInputMode} alt=" meme" data-test-id="meme-image" />
       </div>
-      <div>BottomText</div>
+
       <label>
         Bottom text
         <input

@@ -1,14 +1,11 @@
 body {
   background-color: #ffd400;
-
   position: relative;
   margin-left: 40%;
   margin-right: 60%;
 }
 
-box {
-  background-color: #ece5be;
-}
+
 
 h1 {
   color: #820263;
@@ -27,10 +24,6 @@ input {
   padding-left: 5px;
   border-radius: 15%;
   filter: drop-shadow(0 0 0.75rem #eadeda);
-}
-
-.memeTemplate {
-  text-transform: uppercase;
 }
 
 button {
