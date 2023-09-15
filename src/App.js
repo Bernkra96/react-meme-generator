@@ -3,7 +3,7 @@ import FileSaver from 'file-saver';
 import { useState } from 'react';
 
 export default function App() {
-  // User pamplate input
+  // User template input
   const startUrl = 'https://api.memegen.link/images/';
   const [imageInput, setImageInput] = useState('ackbar');
   const [topText, setTopText] = useState('');
@@ -28,7 +28,7 @@ export default function App() {
   // function changeImage() {
   // return
   // }
-  function claer() {
+  function clear() {
     setTopText();
 
     setBottomText();
@@ -48,7 +48,7 @@ export default function App() {
         Meme template
         <input
           value={imageInput}
-          onKeyUp={claer}
+          onKeyUp={clear}
           onChange={(e) => setImageInput(e.target.value)}
         />
       </label>
