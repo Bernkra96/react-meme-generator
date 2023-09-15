@@ -5,9 +5,11 @@ import { useState } from 'react';
 export default function App() {
   // User template input
   const startUrl = 'https://api.memegen.link/images/';
+  const digitRegExp = /[a-z]./g;
   const [imageInput, setImageInput] = useState('ackbar');
-  const [topText, setTopText] = useState();
-  const [bottomText, setBottomText] = useState();
+
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
@@ -29,7 +31,7 @@ export default function App() {
     '.jpg';
 
   const inputUrlTop =
-    'https://api.memegen.link/images/' + imageInput + '/' + topText + '.jpg';
+    'https://api.memegen.link/images/' + imageInput + '/' + topText + '/ /.jpg';
 
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
@@ -39,23 +41,25 @@ export default function App() {
   // return
   // }
   function clear() {
-    setTopText();
+    setTopText('');
 
-    setBottomText();
+    setBottomText('');
     setImageInputMode(baseUrl);
     return;
   }
 
   function inputTopText() {
-    if (topText.length !== 0 && bottomText.length !== 0) {
-      return setImageInputMode(inputUrl);
+    if (digitRegExp.test(topText) && digitRegExp.test(bottomText)) {
+      setImageInputMode(inputUrl);
+      return;
     }
-
-    if (bottomText.length !== 0) {
-      return setImageInputMode(inputUrlBottom);
+    if (digitRegExp.test(bottomText)) {
+      setImageInputMode(inputUrlBottom);
+      return;
     }
-    if (topText.length !== 0) {
-      return setImageInputMode(inputUrlTop);
+    if (digitRegExp.test(topText)) {
+      setImageInputMode(inputUrlTop);
+      return;
     }
   }
 
