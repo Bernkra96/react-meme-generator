@@ -3,18 +3,16 @@ import FileSaver from 'file-saver';
 import { useState } from 'react';
 
 export default function App() {
-  // User template input
+  // User pamplate input
   const startUrl = 'https://api.memegen.link/images/';
-  const digitRegExp = /[a-z]./g;
   const [imageInput, setImageInput] = useState('ackbar');
-
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
   const baseUrl = startUrl + imageInput + '.jpg';
-  const inputUrl =
+  const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
     '/' +
@@ -23,43 +21,23 @@ export default function App() {
     bottomText +
     '.jpg';
 
-  const inputUrlBottom =
-    'https://api.memegen.link/images/' +
-    imageInput +
-    '/' +
-    '_/' +
-    bottomText +
-    '.jpg';
-
-  const inputUrlTop =
-    'https://api.memegen.link/images/' + imageInput + '/' + topText + '.jpg';
-
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
 
-  // function changeImage() {
-  // return
-  // }
-  function clear() {
-    setTopText('');
+  //function changeImage() {
+  //return
+  //}
+  function claer() {
+    setTopText();
 
-    setBottomText('');
+    setBottomText();
     setImageInputMode(baseUrl);
     return;
   }
 
   function inputTopText() {
-    if (digitRegExp.test(topText) && digitRegExp.test(bottomText)) {
-      setImageInputMode(inputUrl);
-      return;
-    } else if (digitRegExp.test(bottomText)) {
-      setImageInputMode(inputUrlBottom);
-      return;
-    } else if (digitRegExp.test(topText)) {
-      setImageInputMode(inputUrlTop);
-      return;
-    }
+    return setImageInputMode(testUrl);
   }
 
   return (
@@ -70,7 +48,7 @@ export default function App() {
         Meme template
         <input
           value={imageInput}
-          onKeyUp={clear}
+          onKeyUp={claer}
           onChange={(e) => setImageInput(e.target.value)}
         />
       </label>
