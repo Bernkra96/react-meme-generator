@@ -26,7 +26,8 @@ export default function App() {
   const inputUrlBottom =
     'https://api.memegen.link/images/' +
     imageInput +
-    '/_/' +
+    '/' +
+    '_/' +
     bottomText +
     '.jpg';
 
