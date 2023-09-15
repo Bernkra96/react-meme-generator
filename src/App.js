@@ -38,9 +38,9 @@ export default function App() {
   }
 
   function claer() {
-    setTopText();
+    //setTopText();
 
-    setBottomText();
+    //setBottomText();
     setImageInputMode(baseUrl);
     return;
   }
