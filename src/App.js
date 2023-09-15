@@ -37,13 +37,12 @@ export default function App() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
 
-  function claer() {
-    //setTopText();
+  // function claer() {
+  // setTopText();
 
-    //setBottomText();
-    // setImageInputMode(baseUrl);
-    return;
-  }
+  // setBottomText();
+  // setImageInputMode(imageInputMode);
+  // return;
 
   function inputTopText() {
     if (regx.test(topText) && regx.test(bottomText)) {
@@ -65,8 +64,8 @@ export default function App() {
         Meme template
         <input
           value={imageInput}
-          onKeyUp={claer}
           onChange={(e) => setImageInput(e.target.value)}
+          onKeyUp={console.log('')}
         />
       </label>
 
