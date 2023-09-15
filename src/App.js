@@ -6,7 +6,7 @@ export default function App() {
   // User pamplate input
   const startUrl = 'https://api.memegen.link/images/';
   const [imageInput, setImageInput] = useState('ackbar');
-  const [topText, setTopText] = useState('');
+  const [topText, setTopText] = useState('_');
   const [bottomText, setBottomText] = useState('');
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
