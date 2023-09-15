@@ -4,9 +4,12 @@ import { useState } from 'react';
 
 export default function App() {
   // User pamplate input
+
+  const regx = /[\w\d\s]+/;
+
   const startUrl = 'https://api.memegen.link/images/';
   const [imageInput, setImageInput] = useState('ackbar');
-  const [topText, setTopText] = useState('_');
+  const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
@@ -20,14 +23,20 @@ export default function App() {
     '/' +
     bottomText +
     '.jpg';
+  const testUrlTop =
+    'https://api.memegen.link/images/' + imageInput + '/' + topText + '.jpg';
+
+  const testUrlbottom =
+    'https://api.memegen.link/images/' +
+    imageInput +
+    '/_/' +
+    bottomText +
+    '.jpg';
 
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
 
-  //function changeImage() {
-  //return
-  //}
   function claer() {
     setTopText();
 
@@ -37,7 +46,15 @@ export default function App() {
   }
 
   function inputTopText() {
-    return setImageInputMode(testUrl);
+    if (regx.test(topText) && regx.test(bottomText)) {
+      return setImageInputMode(testUrl);
+    }
+    if (regx.test(topText)) {
+      return setImageInputMode(testUrlTop);
+    }
+    if (regx.test(bottomText)) {
+      return setImageInputMode(testUrlbottom);
+    }
   }
 
   return (
