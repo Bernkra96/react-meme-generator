@@ -6,8 +6,8 @@ export default function App() {
   // User template input
   const startUrl = 'https://api.memegen.link/images/';
   const [imageInput, setImageInput] = useState('ackbar');
-  const [topText, setTopText] = useState('');
-  const [bottomText, setBottomText] = useState('');
+  const [topText, setTopText] = useState();
+  const [bottomText, setBottomText] = useState();
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
@@ -20,6 +20,16 @@ export default function App() {
     '/' +
     bottomText +
     '.jpg';
+
+  const inputUrlBottom =
+    'https://api.memegen.link/images/' +
+    imageInput +
+    '/ /' +
+    bottomText +
+    '.jpg';
+
+  const inputUrlTop =
+    'https://api.memegen.link/images/' + imageInput + '/' + topText + '.jpg';
 
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
@@ -37,7 +47,17 @@ export default function App() {
   }
 
   function inputTopText() {
-    return setImageInputMode(inputUrl);
+    if (topText.length !== 0 && topText.length !== 0) {
+      return setImageInputMode(inputUrl);
+    }
+    if (topText.length !== 0) {
+      setImageInputMode(inputUrlTop);
+      return;
+    }
+    if (bottomText.length !== 0) {
+      setImageInputMode(inputUrlBottom);
+      return;
+    }
   }
 
   return (
