@@ -12,7 +12,7 @@ export default function App() {
     startUrl + imageInput + '.jpg',
   );
   const baseUrl = startUrl + imageInput + '.jpg';
-  const testUrl =
+  const inputUrl =
     'https://api.memegen.link/images/' +
     imageInput +
     '/' +
@@ -37,7 +37,7 @@ export default function App() {
   }
 
   function inputTopText() {
-    return setImageInputMode(testUrl);
+    return setImageInputMode(inputUrl);
   }
 
   return (
