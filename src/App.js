@@ -25,14 +25,14 @@ export default function App() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
 
-  function changeImage() {
-    return setImageInputMode(baseUrl);
-  }
+  //function changeImage() {
+  //return
+  //}
   function claer() {
     setTopText();
 
     setBottomText();
-    changeImage();
+    setImageInputMode(baseUrl);
     return;
   }
 
