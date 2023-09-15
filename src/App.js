@@ -31,7 +31,7 @@ export default function App() {
     '.jpg';
 
   const inputUrlTop =
-    'https://api.memegen.link/images/' + imageInput + '/' + topText + '/ /.jpg';
+    'https://api.memegen.link/images/' + imageInput + '/' + topText + '.jpg';
 
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
