@@ -52,12 +52,10 @@ export default function App() {
     if (digitRegExp.test(topText) && digitRegExp.test(bottomText)) {
       setImageInputMode(inputUrl);
       return;
-    }
-    if (digitRegExp.test(bottomText)) {
+    } else if (digitRegExp.test(bottomText)) {
       setImageInputMode(inputUrlBottom);
       return;
-    }
-    if (digitRegExp.test(topText)) {
+    } else if (digitRegExp.test(topText)) {
       setImageInputMode(inputUrlTop);
       return;
     }
