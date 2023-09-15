@@ -41,7 +41,7 @@ export default function App() {
     //setTopText();
 
     //setBottomText();
-    setImageInputMode(baseUrl);
+    // setImageInputMode(baseUrl);
     return;
   }
 
