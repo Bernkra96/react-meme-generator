@@ -25,9 +25,9 @@ export default function App() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
 
-  //function changeImage() {
-  //return
-  //}
+  // function changeImage() {
+  // return
+  // }
   function claer() {
     setTopText();
 
