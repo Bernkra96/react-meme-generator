@@ -47,15 +47,16 @@ export default function App() {
   }
 
   function inputTopText() {
-    if (topText.length !== 0 && topText.length !== 0) {
-      return setImageInputMode(inputUrl);
-    }
     if (topText.length !== 0) {
       setImageInputMode(inputUrlTop);
       return;
     }
     if (bottomText.length !== 0) {
       setImageInputMode(inputUrlBottom);
+      return;
+    }
+    if (topText.length !== 0 && bottomText.length !== 0) {
+      setImageInputMode(inputUrl);
       return;
     }
   }
