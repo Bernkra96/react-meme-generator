@@ -8,13 +8,19 @@ export default function App() {
   const regx = /[\w\d\s]+/;
 
   const startUrl = 'https://api.memegen.link/images/';
+
   const [imageInput, setImageInput] = useState('ackbar');
+
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
-  const baseUrl = startUrl + imageInput + '.jpg';
+  // const baseUrl = startUrl + imageInput + '.jpg';
+  let lodeUrl = imageInputMode;
+
+  const imagteTestUrl = 'https://api.memegen.link/images/' + imageInput;
+
   const testUrl =
     'https://api.memegen.link/images/' +
     imageInput +
@@ -36,22 +42,20 @@ export default function App() {
   function saveImage() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
-
-  // function claer() {
-  // setTopText();
-
-  // setBottomText();
-  // setImageInputMode(imageInputMode);
-  // return;
-
+  function lode() {
+    return setImageInputMode(lodeUrl);
+  }
   function inputTopText() {
     if (regx.test(topText) && regx.test(bottomText)) {
+      lodeUrl = testUrl;
       return setImageInputMode(testUrl);
     }
     if (regx.test(topText)) {
+      lodeUrl = testUrlTop;
       return setImageInputMode(testUrlTop);
     }
     if (regx.test(bottomText)) {
+      lodeUrl = testUrlbottom;
       return setImageInputMode(testUrlbottom);
     }
   }
@@ -61,22 +65,20 @@ export default function App() {
       <h1>Meme Generator</h1>
 
       <label>
-        Meme template
-        <input
-          value={imageInput}
-          onChange={(e) => setImageInput(e.target.value)}
-          onKeyUp={console.log('')}
-        />
-      </label>
-
-      <label>
-        Top text
+        Meme template Top text
         <input
           value={topText}
           onChange={(e) => setTopText(e.target.value)}
           onKeyUp={inputTopText}
         />
       </label>
+
+      <div>
+        <img src={imageInputMode} alt=" meme" data-test-id="meme-image" />
+      </div>
+
+      <div>{imageInputMode}</div>
+
       <div>
         <img src={imageInputMode} alt=" meme" data-test-id="meme-image" />
       </div>
