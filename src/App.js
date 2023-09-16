@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function App() {
   // User pamplate input
 
-  // const regx = /[\w\d\s]+/;
+  const regx = /[\w\d\s]+/;
 
   const startUrl = 'https://api.memegen.link/images/';
 
@@ -16,7 +16,7 @@ export default function App() {
   const [imageInputMode, setImageInputMode] = useState(
     startUrl + imageInput + '.jpg',
   );
-  // const baseUrl = startUrl + imageInput + '.jpg';
+  const baseUrl = startUrl + imageInput + '.jpg';
   // let lodeUrl = imageInputMode;
 
   const testUrl =
@@ -41,7 +41,11 @@ export default function App() {
     FileSaver.saveAs(imageInputMode, 'image.jpg');
   }
   function lode() {
-    return setImageInputMode(testUrl);
+    if (regx.test(topText) || regx.test(bottomText)) {
+      return setImageInputMode(testUrl);
+    } else {
+      return setImageInputMode(baseUrl);
+    }
   }
   // function inputTopText() {
   // if (regx.test(topText) && regx.test(bottomText)) {
